@@ -81,6 +81,8 @@ body {
     overflow-y: auto;
     padding: 25px 22px;
     margin-bottom: 82px;
+    scrollbar-width: thin;
+    scrollbar-color: #ccccf5 transparent;
 }
 
 .chat-body .message {
@@ -140,7 +142,7 @@ body {
     opacity: 0.7;
     border-radius: 50%;
     background: #6f6bc2;
-    /* animation: dotPulse 1.8s ease-in-out infinite; */
+    animation: dotPulse 1.8s ease-in-out infinite;
 }
 
 .chat-body .bot-message .thinking-indicator .dot:nth-child(1) {
@@ -187,7 +189,9 @@ body {
     border-radius: 32px;
     outline: 1px solid #cccce5;
 }
-
+.chat-footer .chat-form:focus-within {
+    outline: 2px solid #5350C4;
+}
 .chat-form .message-input {
     width: 100%;
     height: 47px;
@@ -201,10 +205,34 @@ body {
 .chat-form .chat-controls {
     display: flex;
     height: 47px;
+    gap: 3px;
     align-items: center;
     align-self: flex-end;
     padding-right: 6px;
 }
 .chat-form .chat-controls button {
-    
+    height: 35px;
+    width: 35px;
+    border: none;
+    font-size: 1.15rem;
+    cursor: pointer;
+    color: #706DB0;
+    background: none;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+.chat-form .chat-controls #send-message  {
+    color: #fff;
+    display: none;
+    background: #5350C4;
+}
+.chat-form .message-input:valid~.chat-controls #send-message  {
+    display: block;
+}
+
+.chat-form .chat-controls #send-message:hover {
+    background: #3d39ac;
+}
+.chat-form .chat-controls button:hover {
+    background: #f1f1ff;
 }
